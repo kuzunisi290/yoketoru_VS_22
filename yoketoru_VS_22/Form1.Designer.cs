@@ -29,6 +29,7 @@ namespace yoketoru_VS_22
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.titlelabel = new System.Windows.Forms.Label();
             this.sutartbutton = new System.Windows.Forms.Button();
             this.crlabel = new System.Windows.Forms.Label();
@@ -37,6 +38,8 @@ namespace yoketoru_VS_22
             this.starlabel = new System.Windows.Forms.Label();
             this.gameoverlabel = new System.Windows.Forms.Label();
             this.clearlabel = new System.Windows.Forms.Label();
+            this.titlebutton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // titlelabel
@@ -59,6 +62,7 @@ namespace yoketoru_VS_22
             this.sutartbutton.TabIndex = 1;
             this.sutartbutton.Text = "スタート!!";
             this.sutartbutton.UseVisualStyleBackColor = true;
+            this.sutartbutton.Click += new System.EventHandler(this.sutartbutton_Click);
             // 
             // crlabel
             // 
@@ -105,7 +109,7 @@ namespace yoketoru_VS_22
             this.gameoverlabel.AutoSize = true;
             this.gameoverlabel.Font = new System.Drawing.Font("HGS創英角ｺﾞｼｯｸUB", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gameoverlabel.ForeColor = System.Drawing.Color.Blue;
-            this.gameoverlabel.Location = new System.Drawing.Point(203, 192);
+            this.gameoverlabel.Location = new System.Drawing.Point(202, 144);
             this.gameoverlabel.Name = "gameoverlabel";
             this.gameoverlabel.Size = new System.Drawing.Size(395, 67);
             this.gameoverlabel.TabIndex = 6;
@@ -116,11 +120,26 @@ namespace yoketoru_VS_22
             this.clearlabel.AutoSize = true;
             this.clearlabel.Font = new System.Drawing.Font("HGS創英角ｺﾞｼｯｸUB", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clearlabel.ForeColor = System.Drawing.Color.Yellow;
-            this.clearlabel.Location = new System.Drawing.Point(270, 192);
+            this.clearlabel.Location = new System.Drawing.Point(275, 144);
             this.clearlabel.Name = "clearlabel";
             this.clearlabel.Size = new System.Drawing.Size(261, 67);
             this.clearlabel.TabIndex = 7;
             this.clearlabel.Text = "CLEAR!!";
+            // 
+            // titlebutton
+            // 
+            this.titlebutton.Font = new System.Drawing.Font("HGS創英角ｺﾞｼｯｸUB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.titlebutton.Location = new System.Drawing.Point(237, 236);
+            this.titlebutton.Name = "titlebutton";
+            this.titlebutton.Size = new System.Drawing.Size(327, 96);
+            this.titlebutton.TabIndex = 8;
+            this.titlebutton.Text = "タイトルへ";
+            this.titlebutton.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -128,6 +147,7 @@ namespace yoketoru_VS_22
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.titlebutton);
             this.Controls.Add(this.clearlabel);
             this.Controls.Add(this.gameoverlabel);
             this.Controls.Add(this.starlabel);
@@ -153,6 +173,8 @@ namespace yoketoru_VS_22
         private System.Windows.Forms.Label starlabel;
         private System.Windows.Forms.Label gameoverlabel;
         private System.Windows.Forms.Label clearlabel;
+        private System.Windows.Forms.Button titlebutton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
