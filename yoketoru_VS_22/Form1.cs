@@ -84,6 +84,17 @@ namespace yoketoru_VS_22
                     nextState = State.Clear;
                 }
             }
+            if(currentState==State.Game)
+            {
+                UpdateGame();
+            }
+        }
+
+        void UpdateGame()
+        {
+            Point mp = PointToClient(MousePosition);
+            
+            
         }
 
         void initProc()
@@ -108,6 +119,12 @@ namespace yoketoru_VS_22
                     highscorelabel.Visible = false;
                     sutartbutton.Visible = false;
                     crlabel.Visible = false;
+
+                    for(int i=EnemyIndex;i<ChrMax;i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                    }
                     break;
 
                 case State.Gameover:
