@@ -109,7 +109,7 @@ namespace yoketoru_VS_22
             this.gameoverlabel.AutoSize = true;
             this.gameoverlabel.Font = new System.Drawing.Font("HGS創英角ｺﾞｼｯｸUB", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gameoverlabel.ForeColor = System.Drawing.Color.Blue;
-            this.gameoverlabel.Location = new System.Drawing.Point(202, 144);
+            this.gameoverlabel.Location = new System.Drawing.Point(216, 77);
             this.gameoverlabel.Name = "gameoverlabel";
             this.gameoverlabel.Size = new System.Drawing.Size(395, 67);
             this.gameoverlabel.TabIndex = 6;
@@ -120,7 +120,7 @@ namespace yoketoru_VS_22
             this.clearlabel.AutoSize = true;
             this.clearlabel.Font = new System.Drawing.Font("HGS創英角ｺﾞｼｯｸUB", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clearlabel.ForeColor = System.Drawing.Color.Yellow;
-            this.clearlabel.Location = new System.Drawing.Point(275, 144);
+            this.clearlabel.Location = new System.Drawing.Point(275, 77);
             this.clearlabel.Name = "clearlabel";
             this.clearlabel.Size = new System.Drawing.Size(261, 67);
             this.clearlabel.TabIndex = 7;
@@ -135,6 +135,7 @@ namespace yoketoru_VS_22
             this.titlebutton.TabIndex = 8;
             this.titlebutton.Text = "タイトルへ";
             this.titlebutton.UseVisualStyleBackColor = true;
+            this.titlebutton.Click += new System.EventHandler(this.titlebutton_Click);
             // 
             // timer1
             // 

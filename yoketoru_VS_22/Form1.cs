@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace yoketoru_VS_22
 {
     public partial class Form1 : Form
     {
+        const bool isDebug = true;
+
         enum State
         {
             None = -1,//無効
@@ -22,6 +25,9 @@ namespace yoketoru_VS_22
         }
         State currentState = State.None;
         State nextState = State.Title;
+
+        [DllImport("user32.dll")]
+        public static extern short GetAsyncKeyState(int vKey);
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +39,18 @@ namespace yoketoru_VS_22
             {
                 initProc();
             }
-            
+
+            if (isDebug)
+            {
+                if(GetAsyncKeyState((int)Keys.O)<0)
+                {
+                    nextState = State.Gameover;
+                }
+                else if(GetAsyncKeyState((int)Keys.C)<0)
+                {
+                    nextState = State.Clear;
+                }
+            }
         }
 
         void initProc()
@@ -59,12 +76,29 @@ namespace yoketoru_VS_22
                     sutartbutton.Visible = false;
                     crlabel.Visible = false;
                     break;
+
+                case State.Gameover:
+                    gameoverlabel.Visible = true;
+                    titlebutton.Visible = true;
+                    highscorelabel.Visible = true;
+                    break;
+
+                case State.Clear:
+                    clearlabel.Visible = true;
+                    titlebutton.Visible = true;
+                    highscorelabel.Visible = true;
+                    break;
             }
         }
 
         private void sutartbutton_Click(object sender, EventArgs e)
         {
             nextState = State.Game;
+        }
+
+        private void titlebutton_Click(object sender, EventArgs e)
+        {
+            nextState = State.Title;
         }
     }
 }
