@@ -40,6 +40,7 @@ namespace yoketoru_VS_22
             this.clearlabel = new System.Windows.Forms.Label();
             this.titlebutton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.templabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titlelabel
@@ -142,12 +143,24 @@ namespace yoketoru_VS_22
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // templabel
+            // 
+            this.templabel.AutoSize = true;
+            this.templabel.Font = new System.Drawing.Font("メイリオ", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.templabel.Location = new System.Drawing.Point(108, 269);
+            this.templabel.Name = "templabel";
+            this.templabel.Size = new System.Drawing.Size(33, 30);
+            this.templabel.TabIndex = 9;
+            this.templabel.Text = "★";
+            this.templabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.templabel);
             this.Controls.Add(this.titlebutton);
             this.Controls.Add(this.clearlabel);
             this.Controls.Add(this.gameoverlabel);
@@ -176,6 +189,7 @@ namespace yoketoru_VS_22
         private System.Windows.Forms.Label clearlabel;
         private System.Windows.Forms.Button titlebutton;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label templabel;
     }
 }
 
