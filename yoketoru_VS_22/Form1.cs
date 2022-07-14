@@ -13,6 +13,8 @@ namespace yoketoru_VS_22
 {
     public partial class Form1 : Form
     {
+        
+
         const bool isDebug = true;
 
         const int PlayerMax = 1;
@@ -94,8 +96,13 @@ namespace yoketoru_VS_22
         void UpdateGame()
         {
             Point mp = PointToClient(MousePosition);
-            
-            
+            chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
+            chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height / 2;
+
+            for(int i=EnemyIndex;i<ChrMax;i++)
+            {
+                
+            }
         }
 
         void initProc()
