@@ -147,7 +147,7 @@ namespace yoketoru_VS_22
             // 
             this.templabel.AutoSize = true;
             this.templabel.Font = new System.Drawing.Font("メイリオ", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.templabel.Location = new System.Drawing.Point(108, 269);
+            this.templabel.Location = new System.Drawing.Point(56, 361);
             this.templabel.Name = "templabel";
             this.templabel.Size = new System.Drawing.Size(33, 30);
             this.templabel.TabIndex = 9;

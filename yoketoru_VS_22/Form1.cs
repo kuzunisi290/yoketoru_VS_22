@@ -43,6 +43,10 @@ namespace yoketoru_VS_22
         State currentState = State.None;
         State nextState = State.Title;
 
+        const int SpeedMax = 20;
+        int[] vx = new int[ChrMax];
+        int[] vy = new int[ChrMax];
+
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
         public Form1()
@@ -101,7 +105,44 @@ namespace yoketoru_VS_22
 
             for(int i=EnemyIndex;i<ChrMax;i++)
             {
-                
+                chrs[i].Left += vx[i];
+                chrs[i].Top += vy[i];
+                if (chrs[i].Left < 0)
+                {
+                    vx[i] = Math.Abs(vx[i]);
+                }
+                if (chrs[i].Top < 0)
+                {
+                    vy[i] = Math.Abs(vy[i]);
+                }
+                if (chrs[i].Right > ClientSize.Width)
+                {
+                    vx[i] = -Math.Abs(vx[i]);
+                }
+                if (chrs[i].Bottom > ClientSize.Height)
+                {
+                    vy[i] = -Math.Abs(vy[i]);
+                }
+            
+            
+            
+                if ((mp.X>=chrs[i].Left)
+                    && (mp.X<chrs[i].Right)
+                    && (mp.Y>=chrs[i].Top)
+                    && (mp.Y<chrs[i].Bottom))
+
+                {
+                    //MessageBox.Show("atari");
+                    if (ItemIndex > i)
+                    {
+                        nextState = State.Gameover;
+                    }
+                    else
+                    {
+                        chrs[i].Visible = false;
+                    }
+                }
+
             }
         }
 
@@ -132,6 +173,8 @@ namespace yoketoru_VS_22
                     {
                         chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                        vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+                        vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                     }
                     break;
 
