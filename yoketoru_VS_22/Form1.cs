@@ -49,6 +49,9 @@ namespace yoketoru_VS_22
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
+
+        int itemCount = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -140,6 +143,12 @@ namespace yoketoru_VS_22
                     else
                     {
                         chrs[i].Visible = false;
+                        itemCount--;
+                        if(itemCount<=0)
+                        {
+                            nextState = State.Clear;
+                        }
+                        starlabel.Text = "★:" + itemCount;
                     }
                 }
 
@@ -176,6 +185,9 @@ namespace yoketoru_VS_22
                         vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                         vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                     }
+
+                    itemCount = ItemMax;
+
                     break;
 
                 case State.Gameover:
