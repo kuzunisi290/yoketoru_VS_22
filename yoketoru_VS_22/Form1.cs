@@ -25,6 +25,7 @@ namespace yoketoru_VS_22
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyMax;
+        const int Starttime = 100;
 
         const string PlayerText = "魚";
         const string EnemyText = "爆弾";
@@ -51,6 +52,7 @@ namespace yoketoru_VS_22
         public static extern short GetAsyncKeyState(int vKey);
 
         int itemCount = 0;
+        int time = 0;
 
         public Form1()
         {
@@ -102,6 +104,9 @@ namespace yoketoru_VS_22
 
         void UpdateGame()
         {
+            timelabel.Text = "Time" + time;
+            time--;
+
             Point mp = PointToClient(MousePosition);
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
             chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height / 2;
@@ -149,6 +154,10 @@ namespace yoketoru_VS_22
                             nextState = State.Clear;
                         }
                         starlabel.Text = "★:" + itemCount;
+
+                        vx[i] = 0;
+                        vy[i] = 0;
+                        chrs[i].Left = 10000;
                     }
                 }
 
@@ -187,6 +196,7 @@ namespace yoketoru_VS_22
                     }
 
                     itemCount = ItemMax;
+                    time = Starttime;
 
                     break;
 
