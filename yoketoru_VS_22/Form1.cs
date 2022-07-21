@@ -104,8 +104,9 @@ namespace yoketoru_VS_22
 
         void UpdateGame()
         {
-            timelabel.Text = "Time" + time;
             time--;
+            timelabel.Text = "Time" + time;
+            
 
             Point mp = PointToClient(MousePosition);
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width / 2;
@@ -162,6 +163,12 @@ namespace yoketoru_VS_22
                 }
 
             }
+
+            if((time<=0)
+                &&(nextState==State.None))
+            {
+                nextState = State.Gameover;
+            }
         }
 
         void initProc()
@@ -193,10 +200,11 @@ namespace yoketoru_VS_22
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
                         vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                         vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+                        chrs[i].Visible = true;
                     }
 
                     itemCount = ItemMax;
-                    time = Starttime;
+                    time = Starttime+1;
 
                     break;
 
