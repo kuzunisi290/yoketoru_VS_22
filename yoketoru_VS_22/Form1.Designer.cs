@@ -41,6 +41,7 @@ namespace yoketoru_VS_22
             this.titlebutton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.templabel = new System.Windows.Forms.Label();
+            this.kyodai = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titlelabel
@@ -154,12 +155,24 @@ namespace yoketoru_VS_22
             this.templabel.Text = "★";
             this.templabel.Visible = false;
             // 
+            // kyodai
+            // 
+            this.kyodai.AutoSize = true;
+            this.kyodai.Font = new System.Drawing.Font("メイリオ", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.kyodai.Location = new System.Drawing.Point(148, 335);
+            this.kyodai.Name = "kyodai";
+            this.kyodai.Size = new System.Drawing.Size(116, 50);
+            this.kyodai.TabIndex = 10;
+            this.kyodai.Text = "label1";
+            this.kyodai.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.kyodai);
             this.Controls.Add(this.templabel);
             this.Controls.Add(this.titlebutton);
             this.Controls.Add(this.clearlabel);
@@ -190,6 +203,7 @@ namespace yoketoru_VS_22
         private System.Windows.Forms.Button titlebutton;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label templabel;
+        private System.Windows.Forms.Label kyodai;
     }
 }
 

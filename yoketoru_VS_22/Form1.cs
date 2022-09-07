@@ -20,16 +20,19 @@ namespace yoketoru_VS_22
         const int PlayerMax = 1;
         const int EnemyMax = 10;
         const int ItemMax = 10;
-        const int ChrMax = PlayerMax + EnemyMax + ItemMax;
+        const int Itemmax2 = 1;
+        const int ChrMax = PlayerMax + EnemyMax + ItemMax+Itemmax2;
         Label[] chrs = new Label[ChrMax];
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyMax;
+        const int ItemIndex2 = ItemIndex + ItemMax;
         const int Starttime = 100;
 
         const string PlayerText = "魚";
-        const string EnemyText = "爆弾";
+        const string EnemyText = "海月";
         const string ItemText = "餌";
+        const string Itemtext2 = "巨";
 
         static Random rand = new Random();
 
@@ -69,10 +72,17 @@ namespace yoketoru_VS_22
                 {
                     chrs[i].Text = EnemyText;
                 }
-                else
+                else if(i<ItemIndex2)
                 {
                     chrs[i].Text = ItemText;
                 }
+                else
+                {
+                    chrs[i].Text = Itemtext2;
+                }
+                
+                 
+                
                 chrs[i].Font = templabel.Font;
                 Controls.Add(chrs[i]);
             }
@@ -160,6 +170,10 @@ namespace yoketoru_VS_22
                         vy[i] = 0;
                         chrs[i].Left = 10000;
                     }
+                    if(ItemIndex2>i)
+                    {
+                        chrs[i].Font = kyodai.Font;
+                    }
                 }
 
             }
@@ -230,6 +244,11 @@ namespace yoketoru_VS_22
         private void titlebutton_Click(object sender, EventArgs e)
         {
             nextState = State.Title;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
